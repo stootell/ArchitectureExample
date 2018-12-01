@@ -1,5 +1,6 @@
 package com.example.samto.architectureexample;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -24,5 +25,5 @@ public interface NoteDao {
     void deleteAllNotes();
 
     @Query("SELECT * FROM NOTE_TABLE ORDER BY priority DESC")
-    List<Note> getAllNotes();
+    LiveData<List<Note>> getAllNotes();
 }
