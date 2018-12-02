@@ -27,13 +27,17 @@ public class NoteRepository {
 
 
     public void delete(Note note) {
-        new DeleteNoteAsyncTask(noteDao).execute();
+        new DeleteNoteAsyncTask(noteDao).execute(note);
 
     }
 
     public void deleteAllNotes() {
         new DeleteAllNotesAsyncTask(noteDao).execute();
 
+    }
+
+    public void update(Note note) {
+        new UpdateAsyncTask(noteDao).execute(note);
     }
 
     public LiveData<List<Note>> getAllNotes() {
