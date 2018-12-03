@@ -14,6 +14,20 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 
     private List<Note> notes = new ArrayList<>();
 
+
+    public static class NoteHolder extends RecyclerView.ViewHolder {
+        private TextView tvPriority;
+        private TextView tvTitle;
+        private TextView tvDescription;
+
+        public NoteHolder(View itemView) {
+            super(itemView);
+            tvPriority = itemView.findViewById(R.id.tv_priority);
+            tvTitle = itemView.findViewById(R.id.tv_title);
+            tvDescription = itemView.findViewById(R.id.tv_description);
+        }
+    }
+
     public void setNotes(List<Note> notes) {
         this.notes = notes;
         notifyDataSetChanged(); // Tells adapter that the dataset has changed
@@ -39,18 +53,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         return notes.size();
     }
 
-    class NoteHolder extends RecyclerView.ViewHolder {
-        private TextView tvPriority;
-        private TextView tvTitle;
-        private TextView tvDescription;
-
-        public NoteHolder(View itemView) {
-            super(itemView);
-            tvPriority = itemView.findViewById(R.id.tv_priority);
-            tvTitle = itemView.findViewById(R.id.tv_title);
-            tvDescription = itemView.findViewById(R.id.tv_description);
-        }
-    }
 
 
     }
